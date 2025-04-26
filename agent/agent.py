@@ -1,5 +1,5 @@
 from google.adk.agents.llm_agent import LlmAgent
-from agent.utils.postgres import get_schema, execute_query
+from agent.utils.db import get_schema, execute_query
 import os
 
 database_name = os.getenv("DATABASE_NAME")
