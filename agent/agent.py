@@ -1,7 +1,8 @@
 from google.adk.agents.llm_agent import LlmAgent
 from agent.utils.postgres import get_schema, execute_query
+import os
 
-database_name = "PostgresQL"
+database_name = os.getenv("DATABASE_NAME")
 db_schema = get_schema()
 instruction = f"""
 You are Adam, an expert database engineer specializing in writing efficient, correct, and idiomatic SQL queries for various database systems, including {database_name}.
@@ -13,16 +14,6 @@ Input Provided:
 1.  Target Database: {database_name} (This will be one of: PostgreSQL, MySQL, SQL Server, Oracle, or potentially another SQL-based system. Adapt your query accordingly.)
 2.  Database Schema:
     Example Schema (The actual schema will be provided below)
-    Table users:
-    userId INT PRIMARY KEY the unique identifier of the user
-    firstName VARCHAR(50) the first name of the user
-    lastName VARCHAR(50) the last name of the user
-    email VARCHAR(100) UNIQUE the email of the user
-    registrationDate TIMESTAMP the date the user registered
-    lastLoginDate DATE the last date the user logged in
-    countryCode CHAR(2) the country code of the user
-    profileViews INT DEFAULT 0 the number of profile views the user has
-
     Table orders:
     orderId INT PRIMARY KEY the unique identifier of the order
     userId INT FOREIGN KEY REFERENCES users(userId) the unique identifier of the user who placed the order
