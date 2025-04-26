@@ -18,7 +18,7 @@ if database_type == "postgresql":
 elif database_type == "mysql":
     # MySQL uses mysql+mysqlconnector or other drivers
     port_str = f":{db_port}" if db_port else ":3306"
-    # Example using mysql+mysqlconnector (ensure driver is installed: pip install mysql-connector-python)
+    # Example using mysql+mysqlconnector (ensure driver is installed: pip install mysql-connector-python)  # noqa: E501
     conn_string = (
         f"mysql+mysqlconnector://{db_user}:{db_password}@{db_host}{port_str}/{db_name}"
     )
@@ -71,9 +71,6 @@ def execute_query(query: str) -> list[dict]:
             row_tuple = tuple(row)
             for value in row_tuple:
                 if isinstance(value, datetime):
-                    # Format datetime objects as ISO 8601 strings with 'Z' for UTC timezone indication
-                    # This assumes datetime objects are timezone-aware UTC or naive UTC.
-                    # Adjust if database returns timezone-naive local times.
                     processed_row.append(value.isoformat() + "Z")
                 elif value is None:
                     processed_row.append(None)  # Handle None explicitly

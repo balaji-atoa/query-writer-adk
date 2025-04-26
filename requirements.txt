@@ -1,3 +1,9 @@
 uv
 google-adk
 sqlalchemy
+ruff
+# DBAPI Drivers (Uncomment the ones you need)
+# psycopg2-binary # For PostgreSQL
+# mysql-connector-python # For MySQL
+# pyodbc # For SQL Server
+# oracledb # For Oracle

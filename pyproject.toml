@@ -1,0 +1,49 @@
+[tool.ruff]
+# Enable Pyflakes `F` and a subset of the pycodestyle `E` rules.
+# You can add more rule codes here, separated by commas.
+# See: https://docs.astral.sh/ruff/rules/
+select = ["E", "F"]
+ignore = []
+
+# Allow autofix for all enabled rules (when `--fix` is used).
+fixable = ["ALL"]
+unfixable = []
+
+# Exclude a few common directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+# Same as Black.
+line-length = 88
+
+# Allow unused variables when underscore-prefixed.
+# dummy-variable-rgx = "^_(_?[A-Za-z0-9_]*[A-Za-z0-9])?$"
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto" 
